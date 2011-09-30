@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "urogue102", "urogue102.vcproj", "{C7C1A3AB-D6A2-4617-8C12-137D79B43C18}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "control", "control.vcproj", "{DEE4AC67-857E-4FB6-8AD5-E1405BE0354B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7C1A3AB-D6A2-4617-8C12-137D79B43C18}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7C1A3AB-D6A2-4617-8C12-137D79B43C18}.Debug|Win32.Build.0 = Debug|Win32
+		{C7C1A3AB-D6A2-4617-8C12-137D79B43C18}.Release|Win32.ActiveCfg = Release|Win32
+		{C7C1A3AB-D6A2-4617-8C12-137D79B43C18}.Release|Win32.Build.0 = Release|Win32
+		{DEE4AC67-857E-4FB6-8AD5-E1405BE0354B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEE4AC67-857E-4FB6-8AD5-E1405BE0354B}.Debug|Win32.Build.0 = Debug|Win32
+		{DEE4AC67-857E-4FB6-8AD5-E1405BE0354B}.Release|Win32.ActiveCfg = Release|Win32
+		{DEE4AC67-857E-4FB6-8AD5-E1405BE0354B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

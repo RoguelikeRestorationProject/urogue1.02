@@ -1,0 +1,276 @@
+	This release started with UltraRogue 1.02 Beta, from May 19 1985.
+	The following is the ChangeLog between this version and the final 
+	release of 1.02.  I have recreated the changes using the earliest
+	1.03alpha sources I have as a template and some educated guesses.
+
+X = fixed, or was already fixed as part of port/debugging
+O = obsolete, ports/conditionals that are now obsolete
+I = invalid/inconclusive, either was already fixed in my source
+    material or i can't find what it is referring to
+
+X	1.02 Beta May 20/85
+X	1)	modified saving throw for resurrection to take into account current
+X		constitution adjusted for luck and ring values
+X	2)	rings of resurrection and teleport control now has enchantment 
+X		amount printed
+X	3)	a failed resurrection now waits for the user to read the message
+X		before continuing with termination
+X	4)	off-by-one error in counting resurrection attempts
+X	5)	added diagonal moves to teleport control (sort of)
+I	6)	successful control of teleport modified by luck and ring values
+X	7)	corrected initialization of resurrection count
+X	8)	moved tripping, summoning, and other things inside the test for
+X		valid commands
+X	9)	changed algorithm for determining successful resurection with
+X		everything
+X	10)	bug in listen command changed you to a thief when using it
+X
+X	1.02 Beta May 21/85
+X
+I	1)	a blessed scroll acquirement allows creation of an artifact or
+I		monster even if not wizard
+I	2)	infestation is not supposed to be immediately fatal
+X
+X	1.02 Beta May 22/85
+X	1)	moved new.things (this file) into directory rogue to make updates
+X		via context diffs more easy to apply
+I	2)	corrected message of deactivation of artifacts
+X	3)	changed definition of .rog_defs to an external variable in
+X		tunable.c for customization purposes
+X
+X	1.02 Beta May 23/85
+I	1)	termination after load average is too high does a save instead
+I		of just quitting
+X
+X	1.02 Beta May 25/85
+I	1)	corrected code for adding userid after name in scorefile
+I	2)	redisplaying of messages after being cleared by msg("") fixed
+X
+X	1.02 Beta May 27/85
+I	1)	dungeon level dependent monster ability algorithm made less
+I		nasty
+X	2)	throne room monster ability modification algorithm made less
+X		nasty
+I	3)	some of Lucifer's abilities made less nasty
+I	4)	levitated and phased allows upward movement through rock
+I	5)	discovered trading post stays lit when exiting room
+X
+X	1.02 Beta May 28/85
+X	1)	fixed firetraps combined with rings of levitation
+I	2)	fixed messages for major effects blasting of weapon
+X	3)	disguise can be seen through by monsters with high experience
+X		for hitting, zapping, and throwing things at the hero
+X	4)	increased safe amount to enchant ring from 4 to 5
+X
+X	1.02 Beta May 29/85
+X	1)	documented 'f' and 'F' commands under help command
+X
+X	1.02 Beta June 1/85
+X	1)	increased the value of some items
+X
+X	1.02 Beta June 3/85
+X	1)	made leprechauns and nymphs harder to kill and more likely
+X		to stay around
+X	2)	nymphs now attack whenever possible
+X	3)	monsters ignore rust traps now
+X	4)	changed help for 'f' and 'F' commands slightly
+X
+X	1.02 Beta June 3/85
+X	1)	missed change of ".rog_defs" to ROGDEFS 
+X		(thanx jason%ucblilac.CC@berkeley.arpa)
+X	2)	anything can be claimed now.  inventory names and worth of objects
+X		changed to reflect this
+X
+X	1.02 Beta June 4/85
+X	1)	check for monster wielding a weapon didn't check for null pointer
+X	2)	changed #include "stdio.h" to <stdio.h> in save.c
+X	3)	include mach_dep.h in io.c, save.c, and wizard.c
+X
+X	1.02 Beta June 6/85
+X	1)	shattering of crystalline armor when hit hard is less likely
+X		when armor is well enchanted
+X
+X	1.02 Beta June 7/85
+X	1)	check for null pointer to damage string in determining how much
+X		damage a blow or weapon striking does
+O	2)	added code from jason@ucblilac.CC@berkeley.arpa for support
+O		of job control and tty interfacing for 4.x bsd systems
+X	3)	quaffing non-cursed potion of super heroism removes fear and
+X		also prevents it until super heroism wears off
+O	4)	corrected oversights in jason's code for when terminating
+O		by various legal means
+X	5)	generalized message for selling/dropping artifact in trading post
+X	6)	prices of objects in trading posts are now fixed at object creation
+X		time
+X	7)	algorithm for randomizing prices by quartermasters and in trading 
+X		posts changed
+X	8)	prices as determined by bad luck made worse
+X
+X	1.02 Beta June 8, 85
+O	1)	corrected tty and job control handling for urogue -s and
+O		urogue restore of saved games option
+X
+X	1.02 Beta June 9, 85
+X	1)	too much movement when disguised turns it off
+X	2)	reduced gain in monster strength below level 80
+X	3)	improved resistance of crystalline armor to shattering when hit
+X	4)	confused monsters can lose their confusion
+X	5)	food detection also looks in monster's packs too
+X	6)	evil sorceresses and nymphs can curse something in your pack
+X		while they are looking through it
+O	7)	fix tty characteristics when restoring a game
+X	8)	improved chances of taking it with you when you are resurrected
+X	9)	corrected author and SIGQUIT handling
+X
+X	1.02 Beta June 10, 85
+X	1)	selling an object in a trading post marks the value in a private
+X		location in case hero wants to buy it back
+X	2)	reduced slightly the chance of nasty side effects when using
+X		artifacts
+X	3)	shattering armor removal algorithm fixed
+I	4)	lightning proof and being zapped by lightning checks for no armor
+I		and/or no wielded weapons
+O	5)	change Makefile to be more efficient when maintaining distribution
+O		and private copies by linking only once instead of twice
+X	6)	going to a new level and not wearing any armor causes seg faults
+X		when testing for greedy monsters
+I	7)	null pointers when calculating damage caused by weapons handled
+I		incorrectly
+X	8)	setting traps, traps due to falling objects that create traps,
+X		and artifact side effects have more room by making trap array 
+X		bigger
+X
+X	1.02 Gamma June 19, 85
+O	1)      put in changes and moved things around in preparation for
+O		changes to be received from dan@ciprico for sys3 (aka USGV3)
+O		unix.  generalized conditional compilation code to allow
+O		further extension to multiple system source code versions.  no
+O		recompilation is neccesary with these changes.
+X
+X	1.02 Gamma June 21, 85
+X	1)	fixed bug in quaffing gain ability when dexterity or strength
+X		has been lost
+X	2)	wearing a ring of wizardry doubles spell points for casting and
+X		praying for all player classes provided that they have enough
+X		ability to cast or pray
+X
+X	1.02 Gamma June 24, 85
+X	1)	gazing monsters have no effect when hero is invisible
+X	2)	reduced probability of losing disguise when moving about
+X	3)	leprechauns now attack
+X
+X	1.02 Gamma July 7, 85
+X	1)	can't read scrolls when blind
+X	2)	test for null pointers when refering to weapons and armor
+X		in do_minor() in artifact.c
+X	3)	taking off armor removes stone from shoe
+X
+X	1.02 Gamma July 8, 85
+X	1)	corrected flag handling for nymphs and evil sorceresses
+X		cursing an object that hero is carrying
+X
+X	1.02 Gamma July 10, 85
+X	1)	handling of ring of wizardry and spell points for clerics and
+X		magicians fixed
+X
+X	1.02 Gamma July 12, 85
+X	1)	fixed handling of wizard spell points because of limitations in
+X		certain C compilers.  thanx to dan@ciprico
+O	2)	reset CBREAK mode in rip.c routine score() so that showpack() can 
+O		prompt and wait for a blank to continue displaying items
+I	3)	reduced slightly the probability of a monster hitting back to
+I		original values as received from edjames@ucbshadow
+X	4)	incomplete changes to handle the ring of wizardry in casting
+X		and praying
+X
+X	1.02 Gamma July 18, 85
+X	1)	make dexterity of a monster level dependent past level 60 of
+X		dungeon
+X
+X	1.02 Gamma July 21, 85
+X	1)	silver weapons can't rust no matter what
+X	2)	hitting a rusting monster with a non-metallic weapon no longer
+X		tells you the rust vanishes
+X	3)	no message of rust vanishing from your armor if it is
+X		inherently rustproof
+X	4)	fixed grammar on messages about falling through various traps
+X
+X	1.02 Gamma July 23, 85
+I	1)	changed code to ensure quartermasters sell things at positive
+I		cost only
+X	2)	quaffing a blessed potion of gain ability sometimes increases
+X		the player's body AC as well
+X	3)	fixed initialization code for fighters to give them extra
+X		body AC and also more damage from bare handed attack
+X
+X	1.02 Gamma July 26, 85
+X	1)	wearing a ring of adornment also causes greedy monsters to run
+X		after you
+X	2)	monster's level dependent attributes are dependent upon the maximum
+X		level you have been
+X	3)	a blessed scroll of magic mapping show traps and such too
+X	4)	monsters stepping into firetraps while hero isn't in room
+X		also marks the room as lit
+X
+X	1.02 Delta July 28, 85
+O	1)	sys3 support added, courtesy dan@ciprico
+O	2)	new random number routines added to the optional files
+O		for people without srandom and random
+X
+X	1.02 Delta, July 29, 85
+X	1)	teleporting turns off being held by a bear trap
+X	2)	being hit by a breath weapon while running stops you running
+O	3)	replaced Makefile.install with one supplied by jason@ucblilac
+X	4)	fighting mummies with no weapon usually causes seg faults so
+X		pointer must be checked  (dan@ciprico)
+X	5)	entering a room through a secret door while phased is supposed to
+X		light the room (dan@ciprico)
+I	6)	trying to dip where there's no pool gives wrong message
+X
+X	1.02 Delta, July 30, 85
+X	1)	added support for news option in command line
+X	2)	quit signals produce core files only in wizard mode
+X	3)	wearing a ring of adornment adds 4 to number of transactions
+X		allowed in trading posts
+X	4)	ring of burden deleted and replaced by ring of vampiric regeneration
+X	5)	ring of carrying comes in various degrees now and cursed is like
+X		the ring of burden used to be
+X	6)	ring of vampiric regeneration restores amount of damage done to
+X		monster to player, sort of like a vampire does
+X	7)	ring of regeneration hit points now made somewhat experience
+X		level dependent
+X	8)	food consumption of the regeneration rings make experience
+X		level dependent
+X	9)	wand of blasting and grenades implemented
+X
+X	1.02	August 9, 85
+X	1)	baseline release for urogue
+X	2)	friendly fiend wants a ring of adornment
+X	3)	player startup body AC initialized wrong
+X	4)	negative transaction count after selling ring of adornment fixed
+X	5)	fixed opening of authors file
+X
+X	1.02	August 11, 85
+X	1)	inventory name of a claimed ring had blanks in wrong place
+I	2)	fixed printing of inventory and counting of things inside
+I		the Magic Purse of Yendor
+X
+X	1.02	August 12, 85
+X	1)	Closes PERMOK and PASSCTL after they are no longer needed.  This is
+X		a good practice, and was part of the reason for screwing up our server.
+X	2)	Quaffing a restoration after superheroism had nasty effects.
+X	3)	Screen no longer clears right after score file is displayed on death.
+X	4)	Changing your Ac from 10 would not affect status line.
+O	5)	Expression tree overflowed on trader.c using the 4.1 compiler.
+O		above changes by tecot@cmu-cs-k.arpa.  the system they run has
+O		a "networked" filesystem under 4.1 bsd.
+X	6)	a thrown grenade hitting a monster also explodes and makes a lot
+X		of noise
+X	7)	probabilities of magic items of various kinds changed to make
+X		things harder
+X	8)	costs of things re-arranged to reflect value to player more
+X		accurately
+X
+X	1.02	August 13, 85
+X	1)	being zapped by a breath weapon while not wearing armor causes
+X		core dumps

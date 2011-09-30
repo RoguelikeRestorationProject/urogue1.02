@@ -1,0 +1,70 @@
+(edited for obsolete content - *njk*)
+
+Congratulations!  You are now reading the installation information file
+for UltraRogue Release 1.  I would appreciate forwarding bug reports and 
+descriptions of local enhancements so that I may incorporate them into 
+the latest release.
+
+Note carefully that Alpha versions are considered test versions with
+probably tons of bugs and incomplete implementations of things.  Beta
+versions are more reliable, but probably still contain major bugs.
+Versions without an Alpha or Beta designation are considered
+"production" and bugs reported may not be fixed until the next official
+version is announced.  
+
+Modify the initialization constants in tunable.c before you run
+make.  Note that HOLIDAY is really a boolean and is currently set to
+allow playing at any time provided load is low.  Setting HOLIDAY to 1
+will prevent playing between 9 and 5 during weekdays no matter what the
+load is.  Everything else there should be self explanatory.  The lav
+program is the only one that needs to have read access to /dev/kmem.
+Urogue itself can have an owner of anything as long as it's owner can
+write into the score file and read the passctl and permok files used
+for control.  If you have an older version of urogue, srogue, or
+arogue, the .rog_defs and .rogue_save files are incompatible.  Some
+earlier versions of urogue retained the encryption algorithms for
+reading and writing that are used by other rogue versions.  Versions
+1.02 Alpha and onwards use a different and more secure algorithm,
+although it still will not even slow down the NSA.
+
+Review the makefile to verify that the specified uid's and other
+such things exist or need modification for your environment.
+
+After running make, then run "control -i" (for initialize).  This will
+set up the list of people allowed to bypass load control and also
+allows you to specify the wizard's password.  To initialize the score
+file so that there is something in it, play a game and kill at least
+one monster before quitting.  When the scorefile is empty, urogue will
+file it
+
+For testing the game, the environment variable SEED can be set to
+contain an integer seed.  This seed is used only if you start up urogue
+with the wizard's password prompt by urogue "".
+
+Restoring a saved game is done by "urogue -r" for the default save file
+of ~/rogue.save.  Any other name is restored by "urogue save-file".
+
+There are 8 different treasures to be picked up in this version of rogue.
+The first is on level 25 and is relatively easy to pick up.  The last is
+on level 100 and is very difficult to get.  Carrying any one of the unique
+treasures allows the rogue to go up the stairs, but one has to be
+very careful.
+
+The environment variable SROGUEOPTS is used to setup the default things
+for a player.  The options that can be set are:
+
+terse:		short output messages
+flush:		flush typeahead when fighting
+jump:		show position only at the end of running
+step:		show inventories one line at a time
+askme:		ask about unidentified things
+name:		the rogue's name
+fruit:		the funny fruit used by the rogue
+file:		default savefile name
+score:		default scorefile name
+class:		default player class
+
+Herb Chong, BASc
+Computer Consultant 
+
+I'm user-friendly -- I don't byte, I nybble....
